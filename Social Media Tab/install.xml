@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Media Orb Social [BETA]</name>
+    <version>1.1.1</version>
+    <author>Media Orb</author>
+    <code>MO:1.1.2</code>
+    <!-- PLEASE ITERATE THE <CODE> TAG AFTER EACH EDIT -->
+    <link>http://www.mediaorb.co.uk</link>
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+          <!-- Add our Social Media menu to the admin panel -->
+            <search><![CDATA[
+              // Stats
+            ]]></search>
+            <add position="before"><![CDATA[
+              // Media Orb: Social Media Manager
+              $data['menus'][] = array(
+                'id'       => 'menu-social',
+                'icon'	   => 'fa-twitter',
+                'name'	   => $this->language->get('text_social'),
+                'href'     => $this->url->link('extension/module/mediaorbsocial', 'user_token=' . $this->session->data['user_token'], true),
+                'children' => array()
+              );
+              // End
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/common/column_left.php">
+        <operation>
+          <!-- Add the name of our menu to the language file -->
+            <search><![CDATA[
+              'Reports';
+              ]]></search>
+            <add position="after"><![CDATA[
+              // Media Orb: Social Media Manager
+              $_['text_social']               = 'Social Media';
+              // End
+            ]]></add>
+        </operation>
+      </file>
+</modification>
