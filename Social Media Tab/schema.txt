@@ -1,0 +1,8 @@
+CREATE TABLE oc_socialmedia (
+  id int,
+  icon varchar(16),
+  name varchar(64),
+  url varchar(1024)
+  );
+  
+  INSERT INTO oc_socialmedia (id, name, url) VALUES (1, "Test", "www.com");
